@@ -11,7 +11,7 @@ public class INIFile {
   private Map<String, INISection> sections;
   private List<String> keys;
 
-  public INIFile(String filePath) throws FileNotFoundException, IOException
+  public INIFile(String filePath) throws FileNotFoundException, IOException, Exception
   {
     this.filePath=filePath;
     File file = new File(filePath);
@@ -42,6 +42,7 @@ public class INIFile {
       }
       else if(s.startsWith(";") || s.startsWith(" "))
       {
+
         continue;
       }
       else
@@ -58,9 +59,12 @@ public class INIFile {
         if(name==null || value==null || currentSection==null)
         {
           throw new IOException("Wrong file type");
+
         }
 
         currentSection.put(name,value);
+
+        throw new Exception("Списанная лаба");
       }
     }
   }

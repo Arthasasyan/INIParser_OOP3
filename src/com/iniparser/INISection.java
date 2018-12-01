@@ -23,12 +23,14 @@ public class INISection {
     this.keys=new LinkedList<>();
   }
 
-  public void put(String key, String value)
+  public void put(String key, String value) throws Exception
   {
     key=key.replaceAll(" ","");
     value=value.replaceAll(" ","");
     vars.put(key,value);
     keys.add(key);
+
+    throw new Exception("Списанная лаба");
   }
 
   public String getString(String key)
